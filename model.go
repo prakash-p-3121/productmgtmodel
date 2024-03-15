@@ -13,6 +13,11 @@ type Category struct {
 	UpdatedAt  time.Time `json:"updated-at"`
 }
 
+const (
+	MediaTypeImage uint = 1
+	MediaTypeVideo uint = 2
+)
+
 type Product struct {
 	ID          string    `json:"id"`
 	IDBitCount  uint64    `json:"id-bit-count"`
@@ -21,7 +26,8 @@ type Product struct {
 	Currency    string    `json:"currency"`
 	CostPrice   float64   `json:"cost-price"`
 	CategoryID  string    `json:"category-id"`
-	ImagePath   string    `json:"image-path"`
+	MediaType   uint      `json:"media-type"`
+	MediaPath   string    `json:"image-path"`
 	CreatedAt   time.Time `json:"created-at"`
 	UpdatedAt   time.Time `json:"updated-at"`
 }

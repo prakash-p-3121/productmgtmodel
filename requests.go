@@ -27,6 +27,7 @@ type ProductCreateReq struct {
 	Currency    *string  `json:"currency"`
 	CostPrice   *float64 `json:"cost-price"`
 	CategoryID  *string  `json:"category-id"`
+	MediaType   *uint    `json:"media-type"`
 	MediaPath   *string  `json:"media-path"`
 }
 
@@ -61,6 +62,14 @@ func (req *ProductCreateReq) Validate() errorlib.AppError {
 
 	if req.CategoryID == nil {
 		return errorlib.NewBadReqError("category-id-nil")
+	}
+
+	if req.MediaType == nil {
+		return errorlib.NewBadReqError("media-path-nil")
+	}
+
+	if !(*req.MediaType == MediaTypeImage || *req.MediaType == MediaTypeVideo) {
+		return errorlib.NewBadReqError("invalid-media-type")
 	}
 
 	if req.MediaPath == nil {
