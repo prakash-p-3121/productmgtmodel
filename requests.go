@@ -81,7 +81,7 @@ func (req *ProductCreateReq) Validate() errorlib.AppError {
 	return nil
 }
 
-type MarketPlaceListingCreateReq struct {
+type MarketplaceListingCreateReq struct {
 	ProductID    *string  `json:"product-id"`
 	SellerID     *string  `json:"seller-id"` /* from userID table in usermgtms */
 	SellingPrice *float64 `json:"selling-price"`
@@ -90,7 +90,7 @@ type MarketPlaceListingCreateReq struct {
 	ReturnPolicy *uint    `json:"return-policy"`
 }
 
-func (req *MarketPlaceListingCreateReq) Validate() errorlib.AppError {
+func (req *MarketplaceListingCreateReq) Validate() errorlib.AppError {
 	if req.ProductID == nil {
 		return errorlib.NewBadReqError("product-id-nil")
 	}
