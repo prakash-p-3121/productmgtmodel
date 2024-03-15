@@ -48,7 +48,7 @@ func init() {
 	validReturnPolicies.Store(NoReturnOrRefund, struct{}{})
 }
 
-type ProductSellerAssociations struct {
+type MarketplaceListing struct {
 	ID           string    `json:"id"`
 	IDBitCount   uint64    `json:"id-bit-count"`
 	ProductID    string    `json:"product-id"`
