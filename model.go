@@ -6,14 +6,16 @@ import (
 )
 
 type Category struct {
-	ID        string    `json:"id"`
-	Name      string    `json:"name"`
-	CreatedAt time.Time `json:"created-at"`
-	UpdatedAt time.Time `json:"updated-at"`
+	ID         string    `json:"id"`
+	IDBitCount uint64    `json:"id-bit-count"`
+	Name       string    `json:"name"`
+	CreatedAt  time.Time `json:"created-at"`
+	UpdatedAt  time.Time `json:"updated-at"`
 }
 
 type Product struct {
 	ID          string    `json:"id"`
+	IDBitCount  uint64    `json:"id-bit-count"`
 	Name        string    `json:"name"`
 	Description string    `json:"description"`
 	Currency    string    `json:"currency"`
@@ -42,6 +44,7 @@ func init() {
 
 type ProductSellerAssociations struct {
 	ID           string    `json:"id"`
+	IDBitCount   uint64    `json:"id-bit-count"`
 	ProductID    string    `json:"product-id"`
 	SellerID     string    `json:"seller-id"` /* from userID table in usermgtms */
 	SellingPrice float64   `json:"selling-price"`
